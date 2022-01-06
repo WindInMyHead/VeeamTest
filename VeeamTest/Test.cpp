@@ -5,7 +5,9 @@ Test::Test() {
     getline(wcin, this->adrs);
     cout << "Enter timing(ms): " << endl;
     cin >> this->timing;
-
+    if (timing <= 0) {
+        throw MyException("Incorrect enter");
+    }
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));   
@@ -14,6 +16,9 @@ Test::Test() {
 void Test::StartProcess() {
     PCTSTR s = adrs.c_str();
     CreateProcess(s, NULL, NULL, NULL, false, 0, NULL, NULL, &si, &pi);
+    if (!s) {
+        throw MyException("Error create process");
+    }
     GetExitCodeProcess(pi.hProcess, &state);
 }
 
@@ -39,6 +44,9 @@ void Test::StartMonitor() {
 
 void Test::PrintToFile() {
     fstream f("base.csv", ios::out | ios::trunc);
+    if (!f) {
+        throw MyException("File error");
+    }
     f << "Programm adress" << ",";
     for (int i = 0; i < adrs.size(); i++) {
         f << (char)adrs[i];

@@ -143,6 +143,7 @@
     <ClCompile Include="VeeamTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyException.h" />
     <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
