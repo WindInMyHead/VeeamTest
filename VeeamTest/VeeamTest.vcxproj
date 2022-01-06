@@ -139,10 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="VeeamTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GetInfo.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="base.csv" />
